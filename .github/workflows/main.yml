@@ -1,50 +1,33 @@
-name: Nx Workspace CI/CD
+name: Deploy to GitHub Pages
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main  # Set a branch name to trigger deployment
 
 jobs:
-  build:
-
+  build_and_deploy:
     runs-on: ubuntu-latest
 
-    container:
-      image: angular/ngcontainer
-
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Configure permissions
-      run: sudo chown -R $(whoami) /__w/_temp/
+    - name: Checkout Code
+      uses: actions/checkout@v2
 
     - name: Use Node.js
       uses: actions/setup-node@v2
       with:
         node-version: 14
 
-    - name: Cache Node.js modules
-      uses: actions/cache@v2
-      with:
-        path: ~/.npm
-        key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.OS }}-node-
-          
     - name: Install Dependencies
       run: npm ci
 
-    - name: Lint
-      run: npx nx lint
+    - name: Build Angular App
+      run: npx nx build  # Replace 'my-app' with your application's name
 
-    - name: Test
-      run: npx nx test --browsers=ChromeHeadless
-
-    - name: Build
-      run: npx nx build my-app --prod
-
-    - name: Deploy
+    - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.5
-      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: dist/apps/my-app
+        BRANCH: gh-pages  # The branch the action should deploy to
+        FOLDER: dist/akur8  # Replace 'my-app' with your application's name
+
