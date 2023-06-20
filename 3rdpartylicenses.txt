@@ -1,3 +1,7 @@
+@akur8/shared-components
+
+@akur8/state
+
 @angular/animations
 MIT
 
