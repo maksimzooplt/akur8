@@ -1,0 +1,10 @@
+<akur8-side-list [posts]="posts$ | async" [selectedId]="selectedId$ | async"></akur8-side-list>
+<div class="details">
+    <akur8-create-post></akur8-create-post>
+    <akur8-post-details-list
+        (removePost)="removePostFromList($event)"
+        [posts]="posts$ | async"
+        [selectedId]="selectedId$ | async"
+    ></akur8-post-details-list>
+</div>
+<akur8-event-list [posts]="eventPosts$ | async"></akur8-event-list>

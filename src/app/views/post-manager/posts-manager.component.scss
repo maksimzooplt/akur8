@@ -1,0 +1,6 @@
+:host {
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    height: calc(100vh - 200px);
+    overflow: hidden;
+}

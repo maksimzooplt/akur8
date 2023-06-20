@@ -1,0 +1,12 @@
+:host {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    max-height: calc(100vh - 490px);
+    overflow: scroll;
+}
