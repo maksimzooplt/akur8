@@ -10,7 +10,7 @@ import { combineLatest, map, of, take } from 'rxjs';
 
 @Component({
     selector: 'akur8-posts-manager',
-    standalone: true,   
+    standalone: true,
     imports: [
         CommonModule,
         DetailsListComponent,
@@ -20,7 +20,7 @@ import { combineLatest, map, of, take } from 'rxjs';
     ],
     templateUrl: './posts-manager.component.html',
     styleUrls: ['./posts-manager.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskManagerComponent {
     readonly postsFacade = inject(PostsFacade);
@@ -36,7 +36,7 @@ export class TaskManagerComponent {
         })
     );
 
-    readonly selectedId$ = this.postsFacade.selectedId$
+    readonly selectedId$ = this.postsFacade.selectedId$;
 
     readonly eventPosts$ = this.postsFacade.eventPosts$;
 

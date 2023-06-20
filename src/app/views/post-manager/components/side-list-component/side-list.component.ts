@@ -13,12 +13,17 @@ import { Subject, debounceTime, distinctUntilChanged, filter, map, takeUntil } f
         <akur8-input [control]="searchField" label="Search post"></akur8-input>
         <div class="post-list">
             <ng-container *ngFor="let post of posts">
-                <akur8-side-list-item (selectItem)="select($event)" *ngIf="post?.name" [selected]="post?.id == selectedId" [post]="post"></akur8-side-list-item>
+                <akur8-side-list-item
+                    (selectItem)="select($event)"
+                    *ngIf="post?.name"
+                    [selected]="post?.id == selectedId"
+                    [post]="post"
+                ></akur8-side-list-item>
             </ng-container>
         </div>
     `,
     styleUrls: ['./side-list.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SideListComponent implements OnInit {
     @Input() posts!: PostsEntity[] | null;
@@ -43,14 +48,14 @@ export class SideListComponent implements OnInit {
     }
 
     select(id: string | number): void {
-        this.postsFacade.setSelected(id, () => this.scrollIntoView(`${id}`))
+        this.postsFacade.setSelected(id, () => this.scrollIntoView(`${id}`));
     }
 
     scrollIntoView(id: string): void {
         document.getElementById(id)?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "nearest"
-          });
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest',
+        });
     }
 }

@@ -18,7 +18,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
         </ng-container>
     `,
     styleUrls: ['./details-list.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailsListComponent {
     @Input() posts!: PostsEntity[] | null;

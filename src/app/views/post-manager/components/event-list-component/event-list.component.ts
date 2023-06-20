@@ -7,13 +7,13 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     selector: 'akur8-event-list',
     standalone: true,
     imports: [CommonModule, EventListItem],
-    template: ` 
-    <ng-container *ngFor="let post of posts">
-        <akur8-event-list-item *ngIf="post?.name" [post]="post"></akur8-event-list-item>
-    </ng-container>
+    template: `
+        <ng-container *ngFor="let post of posts">
+            <akur8-event-list-item *ngIf="post?.name" [post]="post"></akur8-event-list-item>
+        </ng-container>
     `,
     styleUrls: ['./event-list.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventListComponent {
     @Input() posts!: EventEntity[] | null;
