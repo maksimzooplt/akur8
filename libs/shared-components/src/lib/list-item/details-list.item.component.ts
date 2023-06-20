@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { BaseListComponent } from './base-list-item.component';
-import { PostsEntity } from '../../../../state/src/index';
+import { PostsEntity } from '@akur8/state';
 
 @Component({
     selector: 'akur8-detailed-item',

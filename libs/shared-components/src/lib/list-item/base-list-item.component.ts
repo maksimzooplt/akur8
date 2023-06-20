@@ -1,5 +1,5 @@
 import { Directive, Input, Output, EventEmitter, HostBinding } from '@angular/core';
-import { EventEntity, PostsEntity } from '../../../../state/src/index';
+import { EventEntity, PostsEntity } from '@akur8/state';
 
 @Directive()
 export abstract class BaseListComponent {

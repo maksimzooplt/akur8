@@ -22,12 +22,12 @@ jobs:
       run: npm ci
 
     - name: Build Angular App
-      run: npx nx build  # Replace 'my-app' with your application's name
+      run: npx nx build --prod # Replace 'my-app' with your application's name
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.5
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages  # The branch the action should deploy to
-        FOLDER: dist/akur8  # Replace 'my-app' with your application's name
+        FOLDER: dist/apps/akur8  # Replace 'my-app' with your application's name
 
