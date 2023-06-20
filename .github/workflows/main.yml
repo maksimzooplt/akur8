@@ -29,5 +29,5 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages  # The branch the action should deploy to
-        FOLDER: dist/apps/akur8  # Replace 'my-app' with your application's name
+        FOLDER: dist/akur8  # Replace 'my-app' with your application's name
 
